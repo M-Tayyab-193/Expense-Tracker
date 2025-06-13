@@ -3,10 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { 
   Wallet, 
   Users, 
-  BarChart3, 
-  Bell, 
-  Shield, 
-  Smartphone 
+  BarChart3
 } from 'lucide-react';
 
 const features = [
@@ -27,86 +24,135 @@ const features = [
     title: "Advanced Analytics",
     description: "Visualize your financial data with beautiful charts and get actionable insights to improve your financial health.",
     gradient: "from-purple-500 to-indigo-600"
-  },
-  {
-    icon: Bell,
-    title: "Smart Notifications",
-    description: "Stay on top of your finances with intelligent alerts for bill reminders, spending limits, and payment requests.",
-    gradient: "from-orange-500 to-red-600"
-  },
-  {
-    icon: Shield,
-    title: "Bank-Level Security",
-    description: "Your financial data is protected with enterprise-grade encryption and security measures you can trust.",
-    gradient: "from-gray-600 to-gray-800"
-  },
-  {
-    icon: Smartphone,
-    title: "Cross-Platform Sync",
-    description: "Access your expenses anywhere, anytime. Seamless synchronization across all your devices in real-time.",
-    gradient: "from-pink-500 to-rose-600"
   }
 ];
 
 const FeatureCards = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-slate-900 to-slate-800">
-      <div className="container mx-auto px-6">
+    <section className="py-24 bg-gradient-to-b from-slate-900 to-slate-800 relative overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 bg-[url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E\")] opacity-30"></div>
+      
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Powerful Features for
-            <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent"> Smart Finance</span>
-          </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Everything you need to take control of your financial life, beautifully designed and intelligently crafted.
-          </p>
+          <motion.h2 
+            className="text-4xl md:text-6xl font-bold text-white mb-6"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Core Features for
+            <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent block mt-2">
+              Financial Freedom
+            </span>
+          </motion.h2>
+          <motion.p 
+            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Three powerful tools designed to transform how you manage your finances, 
+            from personal tracking to collaborative expense management.
+          </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 60, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ 
-                duration: 0.6, 
-                delay: index * 0.1,
-                ease: "easeOut"
+                duration: 0.7, 
+                delay: index * 0.2,
+                ease: [0.25, 0.46, 0.45, 0.94]
               }}
               viewport={{ once: true }}
               whileHover={{ 
-                y: -10,
-                transition: { duration: 0.3 }
+                y: -12,
+                scale: 1.02,
+                transition: { duration: 0.4, ease: "easeOut" }
               }}
+              className="group"
             >
-              <Card className="bg-slate-800/50 border-slate-700 hover:border-slate-600 transition-all duration-300 backdrop-blur-sm group h-full">
-                <CardHeader className="text-center pb-4">
+              <Card className="bg-slate-800/60 border-slate-700/50 hover:border-purple-500/30 transition-all duration-500 backdrop-blur-lg group h-full relative overflow-hidden">
+                {/* Subtle glow effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <CardHeader className="text-center pb-6 relative z-10">
                   <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ duration: 0.3 }}
-                    className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-r ${feature.gradient} flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
+                    whileHover={{ 
+                      scale: 1.15, 
+                      rotate: [0, -5, 5, 0],
+                      transition: { duration: 0.6 }
+                    }}
+                    className={`w-20 h-20 mx-auto mb-6 rounded-3xl bg-gradient-to-r ${feature.gradient} flex items-center justify-center shadow-2xl group-hover:shadow-purple-500/25 transition-all duration-500`}
                   >
-                    <feature.icon className="w-8 h-8 text-white" />
+                    <feature.icon className="w-10 h-10 text-white" />
                   </motion.div>
-                  <CardTitle className="text-xl font-semibold text-white group-hover:text-purple-300 transition-colors duration-300">
+                  <CardTitle className="text-2xl font-bold text-white group-hover:text-purple-300 transition-colors duration-300 mb-3">
                     {feature.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-400 text-center leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                <CardContent className="relative z-10">
+                  <CardDescription className="text-gray-300 text-center leading-relaxed text-lg group-hover:text-gray-200 transition-colors duration-300">
                     {feature.description}
                   </CardDescription>
                 </CardContent>
+
+                {/* Animated border effect */}
+                <motion.div
+                  className="absolute inset-0 rounded-lg border-2 border-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                  style={{ 
+                    background: 'linear-gradient(45deg, transparent, transparent), linear-gradient(45deg, #8b5cf6, #ec4899, #ef4444)',
+                    backgroundClip: 'padding-box, border-box',
+                    backgroundOrigin: 'padding-box, border-box'
+                  }}
+                />
               </Card>
             </motion.div>
           ))}
         </div>
+
+        {/* Call to action section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mt-20"
+        >
+          <motion.p 
+            className="text-lg text-gray-400 mb-8"
+            whileInView={{ opacity: [0.7, 1, 0.7] }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            Ready to transform your financial management?
+          </motion.p>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <button className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 hover:from-purple-700 hover:via-pink-700 hover:to-red-700 text-white px-10 py-4 text-lg font-semibold rounded-full shadow-2xl hover:shadow-purple-500/30 transition-all duration-300 relative overflow-hidden group">
+              <span className="relative z-10">Start Your Journey</span>
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
+                initial={{ x: '-100%' }}
+                whileHover={{ x: '100%' }}
+                transition={{ duration: 0.6 }}
+              />
+            </button>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
