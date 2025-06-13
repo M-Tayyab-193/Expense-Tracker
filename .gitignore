@@ -7,17 +7,18 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Backend dependencies
-/backend/node_modules/
-# Frontend dependencies
-/frontend/node_modules/
+# Ignore environment files in root and subfolders
+/backend/.env
 
+
+# Frontend and backend dependencies
+/frontend/node_modules/
+/backend/node_modules/
+
+# Build outputs
 dist
 dist-ssr
 *.local
-
-# Environment files
-*.env
 
 # Editor directories and files
 .vscode/*
